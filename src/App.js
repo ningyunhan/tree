@@ -34,7 +34,7 @@ class App extends Component {
         myTreeData: [{}],
     }
 
-    componentDidMount() {
+/*    componentDidMount() {
         let tree = new Tree1();
 
         tree.buildTree(15);
@@ -42,6 +42,35 @@ class App extends Component {
         this.setState({
             myTreeData:[tree.root],
         });
+    }*/
+
+
+    handleClick = () => {
+        const value = this.input.value * 1;
+        let reg = /^\d+$/;
+        if(!reg.test(value)) {
+            alert("A positive integer is required");
+            this.input.value = '';
+            return;
+        }
+        if(value === 0) {
+            alert("A positive integer is required");
+            this.input.value = '';
+            return;
+        }
+        if(value > 100) {
+            alert("Input number must be less than 100");
+            this.input.value = '';
+            return;
+        }
+        let tree = new Tree1();
+
+        tree.buildTree(value);
+
+        this.setState({
+            myTreeData:[tree.root],
+        });
+        this.input.value = '';
     }
 
     render() {
@@ -50,6 +79,8 @@ class App extends Component {
 
             <div id="treeWrapper" style={{width: '100em', height: '100em'}}>
                 <h2>For demo purpose designed by Yunhan Ning</h2>
+                Please input number of nodes:&nbsp;<input type="text" ref={input => this.input = input}/>&nbsp;
+                <button onClick={this.handleClick}>Create</button>
                 <Tree data={myTreeData} orientation='vertical' initialDepth={0} translate={{x:700, y:100}}/>
 
             </div>
