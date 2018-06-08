@@ -49,7 +49,7 @@ class App extends Component {
         return (
 
             <div id="treeWrapper" style={{width: '100em', height: '100em'}}>
-
+                <h2>For demo purpose designed by Yunhan Ning</h2>
                 <Tree data={myTreeData} orientation='vertical' initialDepth={0} translate={{x:700, y:100}}/>
 
             </div>
