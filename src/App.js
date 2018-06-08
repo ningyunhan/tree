@@ -44,7 +44,6 @@ class App extends Component {
         });
     }*/
 
-
     handleClick = () => {
         const value = this.input.value * 1;
         let reg = /^\d+$/;
